@@ -11,12 +11,22 @@ const App: FunctionComponent = () => {
 
     }, [])
      
+
     return (
         <div>
             <h1>Pokédex</h1>
-            <p>Bonjour vous avez {pokemons.length} Pokemon</p>
+            <ul>
+                {pokemons.map(({id, name, picture, created, types}) => (
+                    <div key={name}>
+                        <div>{name}</div>
+                        <div>{id}</div>
+                        <img src={picture} alt={name}/>
+                        <div>{types}</div>
+                    </div>
+                ))}
+            </ul>
         </div>
-    )    
+    );
 }
   
 export default App;
